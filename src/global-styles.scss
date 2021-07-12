@@ -1,5 +1,33 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: Ariel, sans-serif;
+}
+
 .root {
-  margin: 14px;
-  padding: 12px;
+  width: 100%;
   z-index: 12;
+}
+
+.Title {
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.TextSmall {
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.TextGrey {
+  color: grey;
+}
+
+.Uppercase {
+  text-transform: uppercase;
+}
+
+.MarginBottom {
+  margin-bottom: 10px;
 }
