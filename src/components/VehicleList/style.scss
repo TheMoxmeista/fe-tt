@@ -1,3 +1,82 @@
+@import '../../_colors.scss';
+
+@keyframes wait {
+  0% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 .VehicleList {
   width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 100%);
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 50%);
+  }
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 25%);
+  }
+}
+
+.VehicleItem {
+  @for $i from 0 through 20 {
+    &:nth-child(#{$i + 1}) {
+      animation: wait #{.5s * $i},
+      fadeIn 1s #{.5s * $i};
+    }
+  }
+  display: flex;
+  width: 100%;
+  background-color: $white;
+  .VehicleImage {
+    flex: 1;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .VehicleDetails {
+    padding: 20px;
+    flex: 2;
+    .VehicleTitleContainer {
+      margin-bottom: 5px;
+      h3 {
+        font-size: 16px;
+        display: inline-block;
+      }
+    }
+    span {
+      display: block;
+    }
+    border-bottom: 1px solid $lightgrey;
+
+    @media (min-width: 768px) {
+      text-align: center;
+      .VehicleTitleContainer {
+        h3 {
+          padding: 5px 0;
+          border-top: 1px solid;
+          border-bottom: 1px solid;
+        }
+      }
+      &:nth-child(even) {
+        border-right: 1px solid $lightgrey;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      border-right: 1px solid $lightgrey;
+    }
+  }
+
+  @media (min-width: 768px) {
+    height: auto;
+    flex-direction: column;
+  }
 }
